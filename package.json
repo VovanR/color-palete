@@ -1,0 +1,38 @@
+{
+  "name": "color-palete",
+  "version": "0.0.0",
+  "description": "Simple color palete",
+  "homepage": "https://github.com/VovanR/color-palete",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VovanR/color-palete.git"
+  },
+  "author": {
+    "name": "VovanR",
+    "url": "http://vovanr.com/"
+  },
+  "devDependencies": {
+    "bower": "",
+    "gulp": "",
+    "gulp-autoprefixer": "",
+    "gulp-connect": "",
+    "gulp-csso": "",
+    "gulp-jscs": "",
+    "gulp-jshint": "",
+    "gulp-requirejs": "",
+    "gulp-stylus": "",
+    "gulp-uglify": "",
+    "jscs": "",
+    "jscs-jsdoc": "",
+    "jshint-stylish": "",
+    "yargs": ""
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/VovanR/color-palete/issues"
+  }
+}
