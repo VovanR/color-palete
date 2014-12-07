@@ -45,7 +45,7 @@ gulp.task('styles', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./dist/css/'))
+        .pipe(gulp.dest('./src/styles/'))
         .pipe(connect.reload());
 });
 
