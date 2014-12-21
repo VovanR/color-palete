@@ -6,17 +6,15 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'marionette',
 ], function (
     $,
     _,
-    Backbone,
-    Marionette
+    Backbone
 ) {
 
     'use strict';
 
-    var AppRouter = Marionette.extend({
+    var AppRouter = Backbone.Router.extend({
         /**
          */
         initialize: function () {

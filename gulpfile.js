@@ -82,7 +82,7 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('rev', function() {
+gulp.task('rev', function () {
     gulp.src('./dist/index.html')
         .pipe(rev())
         .pipe(gulp.dest('./dist/'));
@@ -100,6 +100,7 @@ gulp.task('watch', function () {
     gulp.watch(['./dist/index.html'], ['html']);
     gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
     gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
+    gulp.watch(['./src/templates/**/*.tpl'], ['scripts', 'rev']);
 });
 
 gulp.task('build', ['styles', 'lint', 'scripts']);

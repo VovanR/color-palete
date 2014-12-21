@@ -6,36 +6,44 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'marionette',
-    'collections/PaleteCollection',
     'views/ColorView',
     'text!templates/PaleteTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
-    Marionette,
-    PaleteCollection,
     ColorView,
     PaleteTemplate
 ) {
 
     'use strict';
 
-    var PaleteView = Marionette.CollectionView.extend({
+    var PaleteView = Backbone.View.extend({
         el: '#palete-placeholder',
-        // template: _.template(PaleteTemplate),
-        tagName: 'div',
-        collection: new PaleteCollection(),
+        template: _.template(PaleteTemplate),
         childView: ColorView,
-        // childViewContainer: '.b-palete',
-        // initialize: function () {
-        //     console.info('PaleteView');
-        //     this.render();
-        // },
-        // render: function () {
-        //     this.$el.html(this.template());
-        // },
+        /**
+         * @param {Oblect} o
+         * @param {Backbone.Collection} o.model
+         */
+        initialize: function (o) {
+            console.info('PaleteView');
+            this.model = o.model;
+            this.listenTo(this.model, 'add', this._onAdd);
+            this.render();
+        },
+        /**
+         */
+        render: function () {
+            this.$el.html(this.template());
+        },
+        /**
+         * @param {Backbone.Model} model
+         * @private
+         */
+        _onAdd: function (model) {
+            this.$('.b-palete').append(new ColorView(model).render());
+        },
     });
 
     return PaleteView;

@@ -1,17 +1,24 @@
 .b-palete {
-    width: 100px;
-    height: 100px;
+    width: 500px;
+    height: 500px;
     box-shadow: 0 0 0 2px gray;
 
     &__item {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
+        position: relative;
+        float: left;
+        width: 50px;
+        height: 50px;
         color: #fff;
         transition: box-shadow ease 0.15s;
 
+        &:focus,
         &:hover {
-            box-shadow: 0 0 0 5px;
+            z-index: 2;
+            box-shadow: 0 0 0 10px;
+        }
+
+        &:focus {
+            z-index: 1;
         }
     }
 }

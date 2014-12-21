@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'marionette',
+    'collections/PaleteCollection',
     'views/PaleteView',
     'views/ColorView',
     'models/ColorModel',
@@ -10,44 +10,43 @@ define([
     $,
     _,
     Backbone,
-    Marionette,
+    PaleteCollection,
     PaleteView,
     ColorView,
     ColorModel
 ) {
 
-    var App = Marionette.Application.extend({
+    /**
+     */
+    var App = function () {
+        this._init();
+    };
+
+    App.prototype = {
         /**
+         * @private
          */
-        initialize: function () {
-            var palete = new PaleteView();
-            console.log(palete);
-            palete.render();
-            palete.collection.add(new ColorModel({
-                name: 'foo',
-                value: 'green',
-            }));
-            // $('#palete-placeholder').append(palete.render().el);
-            // var color = new ColorView({
-            //     model: new ColorModel({
-            //         name: 'foo',
-            //         value: 'red',
-            //     }),
-            // });
-            // color.render();
-            // console.log(color)
+        _init: function () {
+            var paleteCollection = new PaleteCollection();
+            var paleteView = new PaleteView({
+                model: paleteCollection,
+            });
+
+            var colors = [
+                {
+                    value: 'red',
+                },
+                {
+                    value: 'green',
+                },
+                {
+                    value: 'blue',
+                },
+            ];
+
+            paleteCollection.add(colors);
         },
-        /**
-         */
-        navigate: function (route, options) {
-            Backbone.history.navigate(route, options || {});
-        },
-        /**
-         */
-        getCurrentRoute: function () {
-            return Backbone.history.fragment;
-        },
-    });
+    };
 
     return App;
 
