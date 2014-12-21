@@ -2,10 +2,13 @@
 
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var rev = require('gulp-rev-append');
 
 var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var rjs = require('gulp-requirejs');
+var uglify = require('gulp-uglify');
 
 var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
@@ -31,7 +34,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('./src/*.html')
+    gulp.src('./dist/*.html')
         .pipe(connect.reload());
 });
 
@@ -45,29 +48,62 @@ gulp.task('styles', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./src/styles/'))
+        .pipe(gulp.dest('./dist/css/'))
         .pipe(connect.reload());
 });
 
 gulp.task('scripts', function () {
-    gulp.src(['./src/scripts/**/*.js'])
-        .pipe(connect.reload());
+    rjs({
+        baseUrl: 'src/scripts',
+        // name: '../../bower_components/almond/almond',
+        include: ['main'],
+        insertRequire: ['main'],
+        // exclude: [
+        //     'jquery',
+        //     'underscore',
+        //     'backbone',
+        //     'marionette',
+        // ],
+        out: 'all.js',
+        paths: {
+            text: '../../bower_components/requirejs-text/text',
+
+            // Apps paths
+            collections: './collections',
+            models: './models',
+            routers: './routers',
+            views: './views',
+            templates: '../templates',
+        },
+        shim: {
+        },
+        wrap: true,
+    })
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(connect.reload());
+});
+
+gulp.task('rev', function () {
+    gulp.src('./src/index.html')
+        .pipe(rev())
+        .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('connect', function () {
     connect.server({
-        root: 'src',
+        root: 'dist',
         port: 8000,
         livereload: true,
     });
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./src/*.html'], ['html']);
-    gulp.watch(['./src/styles/**/*.styl'], ['styles']);
-    gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
+    gulp.watch(['./dist/*.html'], ['html']);
+    gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
+    gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
 });
 
 gulp.task('build', ['styles', 'lint', 'scripts']);
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['build', 'connect', 'watch']);

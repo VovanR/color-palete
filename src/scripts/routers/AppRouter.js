@@ -16,7 +16,9 @@ define([
 
     'use strict';
 
-    var AppRouter = Marionette..extend({
+    var AppRouter = Marionette.extend({
+        /**
+         */
         initialize: function () {
         },
     });
