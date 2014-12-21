@@ -34,7 +34,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('./dist/*.html')
+    gulp.src('./dist/index.html')
         .pipe(connect.reload());
 });
 
@@ -48,8 +48,7 @@ gulp.task('styles', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./dist/css/'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('scripts', function () {
@@ -80,12 +79,11 @@ gulp.task('scripts', function () {
         wrap: true,
     })
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('rev', function () {
-    gulp.src('./src/index.html')
+gulp.task('rev', function() {
+    gulp.src('./dist/index.html')
         .pipe(rev())
         .pipe(gulp.dest('./dist/'));
 });
@@ -99,11 +97,11 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./dist/*.html'], ['html']);
+    gulp.watch(['./dist/index.html'], ['html']);
     gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
     gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
 });
 
 gulp.task('build', ['styles', 'lint', 'scripts']);
 
-gulp.task('default', ['build', 'connect', 'watch']);
+gulp.task('default', ['connect', 'watch']);
