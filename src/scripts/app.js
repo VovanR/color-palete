@@ -6,6 +6,7 @@ define([
     'views/PaleteView',
     'views/ColorView',
     'models/ColorModel',
+    'views/PaleteAddColorView',
 ], function (
     $,
     _,
@@ -13,7 +14,8 @@ define([
     PaleteCollection,
     PaleteView,
     ColorView,
-    ColorModel
+    ColorModel,
+    PaleteAddColorView
 ) {
 
     /**
@@ -31,6 +33,9 @@ define([
             var paleteView = new PaleteView({
                 model: paleteCollection,
             });
+            var paleteAddColorView = new PaleteAddColorView({
+                collection: paleteCollection,
+            });
 
             var colors = [
                 {
@@ -41,6 +46,30 @@ define([
                 },
                 {
                     value: 'blue',
+                },
+                {
+                    value: 'lime',
+                },
+                {
+                    value: 'yellow',
+                },
+                {
+                    value: 'pink',
+                },
+                {
+                    value: 'brown',
+                },
+                {
+                    value: 'orange',
+                },
+                {
+                    value: 'purple',
+                },
+                {
+                    value: 'black',
+                },
+                {
+                    value: 'aqua',
                 },
             ];
 
