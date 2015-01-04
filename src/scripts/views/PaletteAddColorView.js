@@ -6,25 +6,25 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/PaleteAddColorTemplate.tpl',
+    'text!templates/PaletteAddColorTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
-    PaleteAddColorTemplate
+    PaletteAddColorTemplate
 ) {
 
     'use strict';
 
-    var PaleteAddColorView = Backbone.View.extend({
-        el: '#palete-add-color-placeholder',
-        template: _.template(PaleteAddColorTemplate),
+    var PaletteAddColorView = Backbone.View.extend({
+        el: '#palette-add-color-placeholder',
+        template: _.template(PaletteAddColorTemplate),
         /**
          * @param {Oblect} o
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
-            console.info('PaleteAddColorView');
+            console.info('PaletteAddColorView');
             this.collection = o.collection;
             this.render();
         },
@@ -32,17 +32,17 @@ define([
          */
         render: function () {
             this.$el.html(this.template());
-            this.$value = this.$('.js-palete-add-color__value');
+            this.$value = this.$('.js-palette-add-color__value');
         },
         events: {
             /**
              */
-            'click .js-palete-add-color__button': function () {
+            'click .js-palette-add-color__button': function () {
                 this._addNewColor();
             },
             /**
              */
-            'keyup .js-palete-add-color__value': function (e) {
+            'keyup .js-palette-add-color__value': function (e) {
                 if (e.which === 13) {
                     this._addNewColor();
                 }
@@ -66,6 +66,6 @@ define([
         },
     });
 
-    return PaleteAddColorView;
+    return PaletteAddColorView;
 
 });

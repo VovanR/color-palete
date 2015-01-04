@@ -6,25 +6,25 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/PaleteSelectedColorTemplate.tpl',
+    'text!templates/PaletteSelectedColorTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
-    PaleteSelectedColorTemplate
+    PaletteSelectedColorTemplate
 ) {
 
     'use strict';
 
-    var PaleteSelectedColorView = Backbone.View.extend({
-        el: '#palete-selected-color-placeholder',
-        template: _.template(PaleteSelectedColorTemplate),
+    var PaletteSelectedColorView = Backbone.View.extend({
+        el: '#palette-selected-color-placeholder',
+        template: _.template(PaletteSelectedColorTemplate),
         /**
          * @param {Oblect} o
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
-            console.info('PaleteSelectedColorView');
+            console.info('PaletteSelectedColorView');
             this.collection = o.collection;
             this.listenTo(this.collection, 'change:selected', this._update);
             this.render();
@@ -33,7 +33,7 @@ define([
          */
         render: function () {
             this.$el.html(this.template());
-            this.$value = this.$('.js-palete-add-color__value');
+            this.$value = this.$('.js-palette-add-color__value');
         },
         /**
          * @private
@@ -46,10 +46,10 @@ define([
             _.each(selected, function (model) {
                 log += model.get('name') || model.get('value');
             });
-            this.$('.js-palete-selected-color__value').text(log);
+            this.$('.js-palette-selected-color__value').text(log);
         },
     });
 
-    return PaleteSelectedColorView;
+    return PaletteSelectedColorView;
 
 });

@@ -2,20 +2,20 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/PaleteCollection',
-    'views/PaleteView',
+    'collections/PaletteCollection',
+    'views/PaletteView',
     'views/ColorView',
-    'views/PaleteAddColorView',
-    'views/PaleteSelectedColorView',
+    'views/PaletteAddColorView',
+    'views/PaletteSelectedColorView',
 ], function (
     $,
     _,
     Backbone,
-    PaleteCollection,
-    PaleteView,
+    PaletteCollection,
+    PaletteView,
     ColorView,
-    PaleteAddColorView,
-    PaleteSelectedColorView
+    PaletteAddColorView,
+    PaletteSelectedColorView
 ) {
 
     /**
@@ -65,17 +65,17 @@ define([
                 },
             ];
 
-            var paleteCollection = new PaleteCollection(colors);
-            var paleteView = new PaleteView({
-                collection: paleteCollection,
+            var paletteCollection = new PaletteCollection(colors);
+            var paletteView = new PaletteView({
+                collection: paletteCollection,
             });
 
-            var paleteAddColorView = new PaleteAddColorView({
-                collection: paleteCollection,
+            var paletteAddColorView = new PaletteAddColorView({
+                collection: paletteCollection,
             });
 
-            var paleteSelectedColorView = new PaleteSelectedColorView({
-                collection: paleteCollection,
+            var paletteSelectedColorView = new PaletteSelectedColorView({
+                collection: paletteCollection,
             });
         },
     };

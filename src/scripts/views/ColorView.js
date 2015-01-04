@@ -18,7 +18,7 @@ define([
 
     var ColorView = Backbone.View.extend({
         tagName: 'span',
-        className: 'b-palete__item',
+        className: 'b-palette__item',
         /**
          * @param {Oblect} o
          * @param {Backbone.Model} o.model

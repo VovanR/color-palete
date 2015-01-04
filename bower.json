@@ -1,11 +1,11 @@
 {
-  "name": "color-palete",
+  "name": "color-palette",
   "version": "0.0.0",
-  "homepage": "https://github.com/VovanR/color-palete",
+  "homepage": "https://github.com/VovanR/color-palette",
   "authors": [
     "VovanR <mail@vovanr.com>"
   ],
-  "description": "Simple color palete",
+  "description": "Simple color palette",
   "moduleType": [
     "amd"
   ],

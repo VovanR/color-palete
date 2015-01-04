@@ -1,12 +1,12 @@
 {
-  "name": "color-palete",
+  "name": "color-palette",
   "version": "0.0.0",
-  "description": "Simple color palete",
-  "homepage": "https://github.com/VovanR/color-palete",
+  "description": "Simple color palette",
+  "homepage": "https://github.com/VovanR/color-palette",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/VovanR/color-palete.git"
+    "url": "https://github.com/VovanR/color-palette.git"
   },
   "author": {
     "name": "VovanR",
@@ -34,6 +34,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/VovanR/color-palete/issues"
+    "url": "https://github.com/VovanR/color-palette/issues"
   }
 }

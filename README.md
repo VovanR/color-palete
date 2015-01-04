@@ -1,7 +1,7 @@
-color-palete
+color-palette
 ============
 
-Simple color palete
+Simple color palette
 
 ## Development
 

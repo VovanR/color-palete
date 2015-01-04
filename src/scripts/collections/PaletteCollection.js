@@ -16,10 +16,10 @@ define([
 
     'use strict';
 
-    var PaleteCollection = Backbone.Collection.extend({
+    var PaletteCollection = Backbone.Collection.extend({
         model: ColorModel,
     });
 
-    return PaleteCollection;
+    return PaletteCollection;
 
 });

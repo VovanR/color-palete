@@ -7,26 +7,26 @@ define([
     'underscore',
     'backbone',
     'views/ColorView',
-    'text!templates/PaleteTemplate.tpl',
+    'text!templates/PaletteTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
     ColorView,
-    PaleteTemplate
+    PaletteTemplate
 ) {
 
     'use strict';
 
-    var PaleteView = Backbone.View.extend({
-        el: '#palete-placeholder',
-        template: _.template(PaleteTemplate),
+    var PaletteView = Backbone.View.extend({
+        el: '#palette-placeholder',
+        template: _.template(PaletteTemplate),
         /**
          * @param {Oblect} o
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
-            console.info('PaleteView');
+            console.info('PaletteView');
             this.collection = o.collection;
 
             this.listenTo(this.collection, 'add', this._onAdd);
@@ -46,11 +46,11 @@ define([
             var colorView = new ColorView({
                 model: model,
             });
-            this.$('.js-palete').append(colorView.render());
+            this.$('.js-palette').append(colorView.render());
 
         },
     });
 
-    return PaleteView;
+    return PaletteView;
 
 });
