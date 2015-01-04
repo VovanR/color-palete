@@ -7,30 +7,49 @@ define([
     'underscore',
     'backbone',
     'models/ColorModel',
-    'text!templates/ColorTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
-    ColorModel,
-    ColorTemplate
+    ColorModel
 ) {
 
     'use strict';
 
     var ColorView = Backbone.View.extend({
-        template: _.template(ColorTemplate),
+        tagName: 'span',
+        className: 'b-palete__item',
         /**
-         * @param {Backbone.Model} model
+         * @param {Oblect} o
+         * @param {Backbone.Model} o.model
          */
-        initialize: function (model) {
-            this.model = model;
+        initialize: function (o) {
+            this.model = o.model;
+            this.listenTo(this.model, 'change:selected', this._onToggle);
         },
         /**
          * @return {jQuery}
          */
         render: function () {
-            return this.template(this.model.toJSON());
+            var block = this.$el[0];
+            var color = this.model.get('value');
+            block.style.backgroundColor = color;
+            block.style.color = color;
+
+            return this.$el;
+        },
+        events: {
+            /**
+             */
+            click: function () {
+                this.model.toggle();
+            },
+        },
+        /**
+         * @private
+         */
+        _onToggle: function () {
+            this.$el.toggleClass('_state_selected', this.model.get('selected'));
         },
     });
 

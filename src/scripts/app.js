@@ -7,6 +7,7 @@ define([
     'views/ColorView',
     'models/ColorModel',
     'views/PaleteAddColorView',
+    'views/PaleteSelectedColorView',
 ], function (
     $,
     _,
@@ -15,7 +16,8 @@ define([
     PaleteView,
     ColorView,
     ColorModel,
-    PaleteAddColorView
+    PaleteAddColorView,
+    PaleteSelectedColorView
 ) {
 
     /**
@@ -74,6 +76,8 @@ define([
             ];
 
             paleteCollection.add(colors);
+
+            var paleteSelectedColorView = new PaleteSelectedColorView({});
         },
     };
 

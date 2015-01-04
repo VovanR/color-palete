@@ -1,1 +1,1 @@
-<div class="b-palete"></div>
+<div class="b-palete js-palete"></div>

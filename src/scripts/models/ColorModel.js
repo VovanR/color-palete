@@ -18,6 +18,12 @@ define([
         defaults: {
             name: null,
             value: '#fff',
+            selected: false,
+        },
+        /**
+         */
+        toggle: function () {
+            this.set('selected', !this.get('selected'));
         },
     });
 

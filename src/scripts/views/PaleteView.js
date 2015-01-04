@@ -42,7 +42,11 @@ define([
          * @private
          */
         _onAdd: function (model) {
-            this.$('.b-palete').append(new ColorView(model).render());
+            var colorView = new ColorView({
+                model: model,
+            });
+            this.$('.js-palete').append(colorView.render());
+
         },
     });
 
