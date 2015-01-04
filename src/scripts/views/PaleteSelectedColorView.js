@@ -44,7 +44,7 @@ define([
             });
             var log = '';
             _.each(selected, function (model) {
-                log += model.get('value');
+                log += model.get('name') || model.get('value');
             });
             this.$('.js-palete-selected-color__value').text(log);
         },
