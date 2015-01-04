@@ -21,16 +21,17 @@ define([
     var PaleteView = Backbone.View.extend({
         el: '#palete-placeholder',
         template: _.template(PaleteTemplate),
-        // childView: ColorView,
         /**
          * @param {Oblect} o
-         * @param {Backbone.Collection} o.model
+         * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
             console.info('PaleteView');
-            this.model = o.model;
-            this.listenTo(this.model, 'add', this._onAdd);
+            this.collection = o.collection;
+
+            this.listenTo(this.collection, 'add', this._onAdd);
             this.render();
+            this.collection.each(this._onAdd);
         },
         /**
          */

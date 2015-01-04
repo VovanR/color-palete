@@ -5,7 +5,6 @@ define([
     'collections/PaleteCollection',
     'views/PaleteView',
     'views/ColorView',
-    'models/ColorModel',
     'views/PaleteAddColorView',
     'views/PaleteSelectedColorView',
 ], function (
@@ -15,7 +14,6 @@ define([
     PaleteCollection,
     PaleteView,
     ColorView,
-    ColorModel,
     PaleteAddColorView,
     PaleteSelectedColorView
 ) {
@@ -31,14 +29,6 @@ define([
          * @private
          */
         _init: function () {
-            var paleteCollection = new PaleteCollection();
-            var paleteView = new PaleteView({
-                model: paleteCollection,
-            });
-            var paleteAddColorView = new PaleteAddColorView({
-                collection: paleteCollection,
-            });
-
             var colors = [
                 {
                     value: 'red',
@@ -75,9 +65,18 @@ define([
                 },
             ];
 
-            paleteCollection.add(colors);
+            var paleteCollection = new PaleteCollection(colors);
+            var paleteView = new PaleteView({
+                collection: paleteCollection,
+            });
 
-            var paleteSelectedColorView = new PaleteSelectedColorView({});
+            var paleteAddColorView = new PaleteAddColorView({
+                collection: paleteCollection,
+            });
+
+            var paleteSelectedColorView = new PaleteSelectedColorView({
+                collection: paleteCollection,
+            });
         },
     };
 
