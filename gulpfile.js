@@ -14,6 +14,8 @@ var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 
+var evilIcons = require('gulp-evil-icons');
+
 // Lint all modules:
 // $ gulp lint
 // Lint one module:
@@ -34,7 +36,9 @@ gulp.task('lint', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('./dist/index.html')
+    gulp.src('./src/index.html')
+        .pipe(evilIcons())
+        .pipe(gulp.dest('./dist/'))
         .pipe(connect.reload());
 });
 
@@ -97,7 +101,7 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./dist/index.html'], ['html']);
+    gulp.watch(['./src/index.html'], ['html']);
     gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
     gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
     gulp.watch(['./src/templates/**/*.tpl'], ['scripts', 'rev']);
