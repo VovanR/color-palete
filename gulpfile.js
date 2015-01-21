@@ -1,6 +1,8 @@
 // See: http://gulpjs.com/
 
 var gulp = require('gulp');
+var addsrc = require('gulp-add-src');
+var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var rev = require('gulp-rev-append');
 
@@ -51,6 +53,10 @@ gulp.task('styles', function () {
             browsers: ['last 2 versions', 'ie >= 8'],
             cascade: false,
         }))
+        .pipe(addsrc([
+            './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/css/evil-icons.css',
+        ]))
+        .pipe(concat('style.css'))
         .pipe(csso())
         .pipe(gulp.dest('./dist/css/'));
 });
@@ -107,6 +113,6 @@ gulp.task('watch', function () {
     gulp.watch(['./src/templates/**/*.tpl'], ['scripts', 'rev']);
 });
 
-gulp.task('build', ['styles', 'lint', 'scripts']);
+gulp.task('build', ['styles', 'lint', 'scripts', 'html']);
 
 gulp.task('default', ['connect', 'watch']);

@@ -15,7 +15,9 @@
   "devDependencies": {
     "bower": "",
     "gulp": "",
+    "gulp-add-src": "",
     "gulp-autoprefixer": "",
+    "gulp-concat": "",
     "gulp-connect": "",
     "gulp-csso": "",
     "gulp-evil-icons": "",
