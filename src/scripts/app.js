@@ -5,6 +5,7 @@ define([
     'collections/PaletteCollection',
     'views/PaletteView',
     'views/ColorView',
+    'views/PaletteCountView',
     'views/PaletteAddColorView',
     'views/PaletteSelectedColorView',
 ], function (
@@ -14,6 +15,7 @@ define([
     PaletteCollection,
     PaletteView,
     ColorView,
+    PaletteCountView,
     PaletteAddColorView,
     PaletteSelectedColorView
 ) {
@@ -63,10 +65,18 @@ define([
                 {
                     value: 'aqua',
                 },
+                {
+                    name: 'fogdog',
+                    value: '#f06d06',
+                },
             ];
 
             var paletteCollection = new PaletteCollection(colors);
             var paletteView = new PaletteView({
+                collection: paletteCollection,
+            });
+
+            var paletteCountView = new PaletteCountView({
                 collection: paletteCollection,
             });
 

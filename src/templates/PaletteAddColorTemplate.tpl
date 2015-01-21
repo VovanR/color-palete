@@ -1,4 +1,9 @@
 <div class="b-palette-add-color">
-    <input class="b-palette-add-color__value js-palette-add-color__value" autocomplete="off" type="text">
-    <button class="b-palette-add-color__button js-palette-add-color__button" type="button">Add</button>
+    <div class="input-group">
+        <input class="b-palette-add-color__value js-palette-add-color__value form-control" autocomplete="off" type="text">
+
+        <span class="input-group-btn">
+            <button class="b-palette-add-color__button js-palette-add-color__button btn btn-default" type="button">Add</button>
+        </span>
+    </div>
 </div>

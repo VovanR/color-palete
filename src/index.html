@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +7,79 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css?rev=@@hash">
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
     <body>
 
-        <h1>Color Palette</h1>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="b-brand navbar-brand">
+                        <span class="b-brand__text">Color Palette</span>
+                        <span class="b-brand__label label label-default">&beta;</span>
+                    </span>
+                </div>
 
-        <div id="palette-placeholder"></div>
-        <div id="palette-selected-color-placeholder"></div>
-        <div id="palette-add-color-placeholder"></div>
+                <div class="navbar-collapse collapse">
+                    <p class="navbar-text">Just for fun</p>
+
+                    <div class="navbar-text navbar-right">
+                        <div class="b-repo-link">
+                            <span class="b-repo-link__icon">
+                                <icon name="ei-sc-github" size="s" />
+                            </span>
+                            <span class="b-repo-link__text">VovanR/color-palette</span>
+                            <a class="b-repo-link__link" href="https://github.com/VovanR/color-palette"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Added
+
+                            <span class="badge" id="palette-count">0</span>
+                        </div>
+
+                        <div class="panel-body">
+                            <div id="palette-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            New
+                        </div>
+
+                        <div class="panel-body">
+                            <div id="palette-add-color-placeholder"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selected
+                        </div>
+
+                        <div class="panel-body">
+                            <div id="palette-selected-color-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer class="b-footer">
-            <a class="b-repo-link" href="https://github.com/VovanR/color-palette">
-                <span class="b-repo-link__icon">
-                    <icon name="ei-sc-github" size="s" />
-                </span>
-                <span class="b-repo-link__text">VovanR/color-palete</span>
-            </a>
         </footer>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
