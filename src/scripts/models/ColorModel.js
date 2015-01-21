@@ -20,10 +20,17 @@ define([
             value: '#fff',
             selected: false,
         },
+
         /**
          */
         toggle: function () {
             this.set('selected', !this.get('selected'));
+        },
+
+        /**
+         */
+        deselect: function () {
+            this.set('selected', false);
         },
     });
 
