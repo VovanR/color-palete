@@ -20,6 +20,14 @@ define([
             value: '#fff',
             selected: false,
         },
+        /**
+         * @param {Object} o
+         */
+        initialize: function (o) {
+            if (!o.name) {
+                this.set('name', o.value);
+            }
+        },
 
         /**
          */
