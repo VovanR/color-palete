@@ -33,20 +33,24 @@ define([
          */
         render: function () {
             this.$el.html(this.template());
-            this.$value = this.$('.js-palette-add-color__value');
+            this.$item = this.$('.js-palette-selected-color__item');
+            this.$name = this.$('.js-palette-selected-color__name');
+            this.$value = this.$('.js-palette-selected-color__value');
         },
+
         /**
          * @private
          */
         _update: function () {
             var selected = this.collection.where({
                 selected: true,
+            })[0];
+            this.$item.css({
+                backgroundColor: selected.get('value'),
+                color: selected.get('value'),
             });
-            var log = '';
-            _.each(selected, function (model) {
-                log += model.get('name') || model.get('value');
-            });
-            this.$('.js-palette-selected-color__value').text(log);
+            this.$name.text(selected.get('name') || selected.get('value'));
+            this.$value.text(selected.get('value'));
         },
     });
 

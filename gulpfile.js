@@ -95,7 +95,8 @@ gulp.task('scripts', function () {
 gulp.task('rev', function () {
     gulp.src('./dist/index.html')
         .pipe(rev())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(connect.reload());
 });
 
 gulp.task('connect', function () {
