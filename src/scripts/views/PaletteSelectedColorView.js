@@ -18,7 +18,7 @@ define([
 
     var PaletteSelectedColorView = Backbone.View.extend({
         el: '#palette-selected-color-placeholder',
-        template: _.template(PaletteSelectedColorTemplate),
+        className: 'b-palette-selected-color',
         /**
          * @param {Oblect} o
          * @param {Backbone.Collection} o.collection
@@ -32,25 +32,29 @@ define([
         /**
          */
         render: function () {
-            this.$el.html(this.template());
-            this.$item = this.$('.js-palette-selected-color__item');
-            this.$name = this.$('.js-palette-selected-color__name');
-            this.$value = this.$('.js-palette-selected-color__value');
         },
 
         /**
          * @private
          */
         _update: function () {
+            this.$el.empty();
             var selected = this.collection.where({
                 selected: true,
-            })[0];
-            this.$item.css({
-                backgroundColor: selected.get('value'),
-                color: selected.get('value'),
             });
-            this.$name.text(selected.get('name') || selected.get('value'));
-            this.$value.text(selected.get('value'));
+            _.each(selected, function (model) {
+                this._createItem(model);
+            }, this);
+        },
+
+        /**
+         * @private
+         */
+        _createItem: function (model) {
+            this.$el.append(_.template(PaletteSelectedColorTemplate)({
+                name: model.get('name'),
+                value: model.get('value'),
+            }));
         },
     });
 
