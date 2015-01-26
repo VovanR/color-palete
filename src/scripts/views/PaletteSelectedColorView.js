@@ -33,6 +33,11 @@ define([
          */
         render: function () {
         },
+        events: {
+            'click .b-palette-selected-color__remove': function () {
+                console.log(1);
+            },
+        },
 
         /**
          * @private

@@ -33,12 +33,12 @@ define([
             $(document)
                 .on('keydown', function (e) {
                     if (e.which === 17) {
-                        this._singleSelection = false;
+                        this.toggleSingleSelectionMode(false);
                     }
                 }.bind(this))
                 .on('keyup', function (e) {
                     if (e.which === 17) {
-                        this._singleSelection = true;
+                        this.toggleSingleSelectionMode(true);
                     }
                 }.bind(this));
         },
@@ -62,6 +62,21 @@ define([
                 // }
                 this._lastSelected = null;
             }
+        },
+
+        /**
+         * @param {Boolean} single
+         */
+        toggleSingleSelectionMode: function (single) {
+            this._singleSelection = single;
+            Backbone.trigger('single-selection', single);
+        },
+
+        /**
+         * @return {Boolean}
+         */
+        getSelectionMode: function () {
+            return this._singleSelection;
         },
     });
 

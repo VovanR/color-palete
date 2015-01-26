@@ -1,10 +1,15 @@
-<div class="b-palette-selected-color__item js-palette-selected-color__item"
+<div class="b-palette-selected-color__item"
      style="background-color: <%= value %>; color: <%= value %>">
-    <div class="b-palette-selected-color__name js-palette-selected-color__name">
+    <span class="b-palette-selected-color__remove" tabindex="0">
+        destruct
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </span>
+
+    <div class="b-palette-selected-color__name">
         <%= name %>
     </div>
 
-    <div class="b-palette-selected-color__value js-palette-selected-color__value">
+    <div class="b-palette-selected-color__value">
         <%= value %>
     </div>
 </div>
