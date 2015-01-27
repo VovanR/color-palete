@@ -24,6 +24,7 @@ define([
             console.info('PaletteSelectedCountView');
             this.collection = o.collection;
             this.listenTo(this.collection, 'change:selected', this.render);
+            this.listenTo(this.collection, 'remove', this.render);
             this.render();
         },
         /**

@@ -33,36 +33,48 @@ define([
         render: function () {
             this.$el.html(this.template());
             this.$value = this.$('.js-palette-add-color__value');
+            this.$name = this.$('.js-palette-add-color__name');
         },
         events: {
             /**
              */
-            'click .js-palette-add-color__button': function () {
+            'submit form': function (e) {
+                e.preventDefault();
                 this._addNewColor();
             },
-            /**
-             */
-            'keyup .js-palette-add-color__value': function (e) {
-                if (e.which === 13) {
-                    this._addNewColor();
-                }
-            },
         },
+
         /**
          * @private
          */
         _addNewColor: function () {
+            var value = this._getValue();
+            if (!value) {
+                console.error('Value is not valid');
+                return;
+            }
             this.collection.add({
                 value: this._getValue(),
+                name: this._getName(),
             });
             this.$value.val('');
+            this.$name.val('');
         },
+
         /**
          * @return {String}
          * @private
          */
         _getValue: function () {
             return this.$value.val().trim();
+        },
+
+        /**
+         * @return {String}
+         * @private
+         */
+        _getName: function () {
+            return this.$name.val().trim();
         },
     });
 
