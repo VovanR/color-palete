@@ -29,7 +29,8 @@ define([
             console.info('PaletteView');
             this.collection = o.collection;
 
-            this.listenTo(this.collection, 'add', this._onAdd);
+            this.listenTo(this.collection, 'add', this._update);
+            this.listenTo(this.collection, 'destroy', this._update);
             this.render();
             this.collection.each(this._onAdd);
         },
@@ -38,6 +39,7 @@ define([
         render: function () {
             this.$el.html(this.template());
         },
+
         /**
          * @param {Backbone.Model} model
          * @private
@@ -47,7 +49,11 @@ define([
                 model: model,
             });
             this.$('.js-palette').append(colorView.render());
+        },
 
+        _update: function () {
+            this.$('.js-palette').empty();
+            this.collection.each(this._onAdd);
         },
     });
 

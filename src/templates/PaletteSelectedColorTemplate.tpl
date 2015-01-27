@@ -1,4 +1,4 @@
-<div class="b-palette-selected-color__item"
+<div class="b-palette-selected-color__background"
      style="background-color: <%= value %>; color: <%= value %>">
     <span class="b-palette-selected-color__remove" tabindex="0">
         destruct

@@ -7,7 +7,7 @@ define([
     'views/ColorView',
     'views/PaletteCountView',
     'views/PaletteAddColorView',
-    'views/PaletteSelectedColorView',
+    'views/PaletteSelectedColorsView',
     'views/PaletteSelectedCountView',
     'views/PaletteMultiselectView',
 ], function (
@@ -19,7 +19,7 @@ define([
     ColorView,
     PaletteCountView,
     PaletteAddColorView,
-    PaletteSelectedColorView,
+    PaletteSelectedColorsView,
     PaletteSelectedCountView,
     PaletteMultiselectView
 ) {
@@ -88,7 +88,7 @@ define([
                 collection: paletteCollection,
             });
 
-            var paletteSelectedColorView = new PaletteSelectedColorView({
+            var paletteSelectedColorsView = new PaletteSelectedColorsView({
                 collection: paletteCollection,
             });
 

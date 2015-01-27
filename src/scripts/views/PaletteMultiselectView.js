@@ -41,6 +41,8 @@ define([
             this._changeSelectionMode(this.collection.getSelectionMode());
         },
         events: {
+            /**
+             */
             'click .b-palette-multiselect__checkbox': function (e) {
                 this.collection.toggleSingleSelectionMode(!this.$checkbox.prop('checked'));
             },

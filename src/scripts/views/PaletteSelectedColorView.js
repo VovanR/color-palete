@@ -17,49 +17,32 @@ define([
     'use strict';
 
     var PaletteSelectedColorView = Backbone.View.extend({
-        el: '#palette-selected-color-placeholder',
-        className: 'b-palette-selected-color',
+        tagName: 'div',
+        className: 'b-palette-selected-color__item',
+        template: _.template(PaletteSelectedColorTemplate),
         /**
          * @param {Oblect} o
-         * @param {Backbone.Collection} o.collection
+         * @param {Backbone.Model} o.model
          */
         initialize: function (o) {
             console.info('PaletteSelectedColorView');
-            this.collection = o.collection;
-            this.listenTo(this.collection, 'change:selected', this._update);
-            this.render();
+            this.model = o.model;
         },
         /**
          */
         render: function () {
+            this.$el.html(this.template({
+                name: this.model.get('name'),
+                value: this.model.get('value'),
+            }));
+            return this.$el;
         },
         events: {
+            /**
+             */
             'click .b-palette-selected-color__remove': function () {
-                console.log(1);
+                this.model.destroy();
             },
-        },
-
-        /**
-         * @private
-         */
-        _update: function () {
-            this.$el.empty();
-            var selected = this.collection.where({
-                selected: true,
-            });
-            _.each(selected, function (model) {
-                this._createItem(model);
-            }, this);
-        },
-
-        /**
-         * @private
-         */
-        _createItem: function (model) {
-            this.$el.append(_.template(PaletteSelectedColorTemplate)({
-                name: model.get('name'),
-                value: model.get('value'),
-            }));
         },
     });
 
