@@ -3,6 +3,9 @@ color-palette
 
 Simple color palette
 
+## Demo
+[vovanr.github.io/color-palette](http://vovanr.github.io/color-palette)
+
 ## Development
 
 ### Install dependencies
@@ -20,3 +23,6 @@ gulp build
 gulp
 ```
 Open http://localhost:8000
+
+## License
+MIT License
