@@ -33,6 +33,8 @@ define([
             this.listenTo(this.collection, 'destroy', this._update);
             this.render();
             this.collection.each(this._onAdd);
+
+            this._startSleepAnimation();
         },
         /**
          */
@@ -51,9 +53,38 @@ define([
             this.$('.js-palette').append(colorView.render());
         },
 
+        /**
+         * @private
+         */
         _update: function () {
             this.$('.js-palette').empty();
             this.collection.each(this._onAdd);
+        },
+
+        /**
+         * @private
+         */
+        _startSleepAnimation: function () {
+            var wait = _.random(1, 10) * 100;
+            setTimeout(function (that) {
+                that._selectRandomColor();
+                that._startSleepAnimation();
+            }, wait, this);
+        },
+
+        /**
+         * @private
+         */
+        _selectRandomColor: function () {
+            var select = this.collection.sample();
+            select.set('hovered', true);
+            var wait = _.random(5, 50) * 100;
+            setTimeout(function (that) {
+                if (!select) {
+                    return;
+                }
+                select.set('hovered', false);
+            }, wait, this);
         },
     });
 

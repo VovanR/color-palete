@@ -19,6 +19,7 @@ define([
             name: null,
             value: '#fff',
             selected: false,
+            hovered: false,
         },
         /**
          * @param {Object} o

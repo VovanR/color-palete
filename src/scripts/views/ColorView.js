@@ -26,6 +26,7 @@ define([
         initialize: function (o) {
             this.model = o.model;
             this.listenTo(this.model, 'change:selected', this._onToggle);
+            this.listenTo(this.model, 'change:hovered', this._onHover);
         },
         /**
          * @return {jQuery}
@@ -45,11 +46,19 @@ define([
                 this.model.toggle();
             },
         },
+
         /**
          * @private
          */
         _onToggle: function () {
             this.$el.toggleClass('b-palette__item_state_selected', this.model.get('selected'));
+        },
+
+        /**
+         * @private
+         */
+        _onHover: function () {
+            this.$el.toggleClass('b-palette__item_state_hovered', this.model.get('hovered'));
         },
     });
 
