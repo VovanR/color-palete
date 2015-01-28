@@ -35,45 +35,17 @@ define([
          * @private
          */
         _init: function () {
-            var colors = [
-                {
-                    value: 'red',
-                },
-                {
-                    value: 'green',
-                },
-                {
-                    value: 'blue',
-                },
-                {
-                    value: 'lime',
-                },
-                {
-                    value: 'yellow',
-                },
-                {
-                    value: 'pink',
-                },
-                {
-                    value: 'brown',
-                },
-                {
-                    value: 'orange',
-                },
-                {
-                    value: 'purple',
-                },
-                {
-                    value: 'black',
-                },
-                {
-                    value: 'aqua',
-                },
-                {
-                    name: 'fogdog',
-                    value: '#f06d06',
-                },
-            ];
+            var colorChars = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+            var colors = [];
+            _.times(90, function () {
+                colors.push({
+                    value: '#' + _.sample(colorChars, 6).join(''),
+                });
+            });
+            colors.push({
+                name: 'fogdog',
+                value: '#f06d06',
+            });
 
             var paletteCollection = new PaletteCollection(colors);
             var paletteView = new PaletteView({

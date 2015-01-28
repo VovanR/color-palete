@@ -49,7 +49,7 @@ define([
          * @private
          */
         _onToggle: function () {
-            this.$el.toggleClass('_state_selected', this.model.get('selected'));
+            this.$el.toggleClass('b-palette__item_state_selected', this.model.get('selected'));
         },
     });
 
