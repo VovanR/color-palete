@@ -16,8 +16,9 @@ define([
 
     var PaletteMultiselectView = Backbone.View.extend({
         el: '.b-palette-multiselect',
+
         /**
-         * @param {Oblect} o
+         * @param {Oblect} o Options
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
@@ -29,6 +30,7 @@ define([
             this.$checkbox = this.$('.b-palette-multiselect__checkbox');
             this.render();
         },
+
         /**
          */
         render: function () {
@@ -40,6 +42,7 @@ define([
             }
             this._changeSelectionMode(this.collection.getSelectionMode());
         },
+
         events: {
             /**
              */
@@ -49,6 +52,7 @@ define([
         },
 
         /**
+         * @param {Boolean} mode
          * @private
          */
         _changeSelectionMode: function (mode) {

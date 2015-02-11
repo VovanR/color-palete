@@ -6,11 +6,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'handlebars',
     'text!templates/PaletteSelectedColorTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
+    Handlebars,
     PaletteSelectedColorTemplate
 ) {
 
@@ -19,7 +21,8 @@ define([
     var PaletteSelectedColorView = Backbone.View.extend({
         tagName: 'div',
         className: 'b-palette-selected-color__item',
-        template: _.template(PaletteSelectedColorTemplate),
+        template: Handlebars.compile(PaletteSelectedColorTemplate),
+
         /**
          * @param {Oblect} o
          * @param {Backbone.Model} o.model
@@ -28,6 +31,7 @@ define([
             console.info('PaletteSelectedColorView');
             this.model = o.model;
         },
+
         /**
          */
         render: function () {
@@ -37,6 +41,7 @@ define([
             }));
             return this.$el;
         },
+
         events: {
             /**
              */

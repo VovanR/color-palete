@@ -19,8 +19,9 @@ define([
     var ColorView = Backbone.View.extend({
         tagName: 'span',
         className: 'b-palette__item',
+
         /**
-         * @param {Oblect} o
+         * @param {Oblect} o Options
          * @param {Backbone.Model} o.model
          */
         initialize: function (o) {
@@ -28,6 +29,7 @@ define([
             this.listenTo(this.model, 'change:selected', this._onToggle);
             this.listenTo(this.model, 'change:hovered', this._onHover);
         },
+
         /**
          * @return {jQuery}
          */
@@ -39,6 +41,7 @@ define([
 
             return this.$el;
         },
+
         events: {
             /**
              */

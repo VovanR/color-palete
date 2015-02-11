@@ -16,8 +16,9 @@ define([
 
     var PaletteSelectedCountView = Backbone.View.extend({
         el: '#palette-selected-count',
+
         /**
-         * @param {Oblect} o
+         * @param {Oblect} o Options
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
@@ -27,6 +28,7 @@ define([
             this.listenTo(this.collection, 'remove', this.render);
             this.render();
         },
+
         /**
          */
         render: function () {

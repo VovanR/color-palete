@@ -6,11 +6,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'handlebars',
     'text!templates/PaletteAddColorTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
+    Handlebars,
     PaletteAddColorTemplate
 ) {
 
@@ -18,9 +20,10 @@ define([
 
     var PaletteAddColorView = Backbone.View.extend({
         el: '#palette-add-color-placeholder',
-        template: _.template(PaletteAddColorTemplate),
+        template: Handlebars.compile(PaletteAddColorTemplate),
+
         /**
-         * @param {Oblect} o
+         * @param {Oblect} o Options
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
@@ -28,13 +31,15 @@ define([
             this.collection = o.collection;
             this.render();
         },
+
         /**
          */
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template);
             this.$value = this.$('.js-palette-add-color__value');
             this.$name = this.$('.js-palette-add-color__name');
         },
+
         events: {
             /**
              */

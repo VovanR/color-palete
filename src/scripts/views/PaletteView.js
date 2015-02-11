@@ -6,12 +6,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'handlebars',
     'views/ColorView',
     'text!templates/PaletteTemplate.tpl',
 ], function (
     $,
     _,
     Backbone,
+    Handlebars,
     ColorView,
     PaletteTemplate
 ) {
@@ -20,7 +22,8 @@ define([
 
     var PaletteView = Backbone.View.extend({
         el: '#palette-placeholder',
-        template: _.template(PaletteTemplate),
+        template: Handlebars.compile(PaletteTemplate),
+
         /**
          * @param {Oblect} o
          * @param {Backbone.Collection} o.collection
@@ -36,10 +39,11 @@ define([
 
             this._startSleepAnimation();
         },
+
         /**
          */
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template);
         },
 
         /**

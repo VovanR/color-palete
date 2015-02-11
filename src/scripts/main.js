@@ -1,7 +1,7 @@
 define('jquery', [], function () { return window.jQuery; });
 define('underscore', [], function () { return window._; });
+define('handlebars', [], function () { return window.Handlebars; });
 define('backbone', [], function () { return window.Backbone; });
-define('marionette', [], function () { return window.Marionette; });
 
 require([
     'app',
@@ -9,6 +9,6 @@ require([
     App
 ) {
 
-    var app = new App();
+    var app = App.initialize();
 
 });

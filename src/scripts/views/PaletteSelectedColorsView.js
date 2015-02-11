@@ -18,8 +18,9 @@ define([
 
     var PaletteSelectedColorsView = Backbone.View.extend({
         el: '#palette-selected-colors-placeholder',
+
         /**
-         * @param {Oblect} o
+         * @param {Oblect} o Options
          * @param {Backbone.Collection} o.collection
          */
         initialize: function (o) {
@@ -31,6 +32,7 @@ define([
             this.listenTo(this.collection, 'change:selected', this.render);
             this.render();
         },
+
         /**
          */
         render: function () {
