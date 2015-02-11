@@ -4,7 +4,7 @@
 
 define([
     'jquery',
-    'underscore',
+    'lodash',
     'backbone',
     'handlebars',
     'text!templates/PaletteAddColorTemplate.tpl',

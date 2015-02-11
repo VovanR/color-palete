@@ -4,7 +4,7 @@
 
 define([
     'jquery',
-    'underscore',
+    'lodash',
     'backbone',
     'models/ColorModel',
 ], function (

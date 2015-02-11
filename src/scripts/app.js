@@ -1,6 +1,6 @@
 define([
     'jquery',
-    'underscore',
+    'lodash',
     'backbone',
     'collections/PaletteCollection',
     'views/PaletteView',
@@ -27,7 +27,7 @@ define([
     /**
      */
     var initialize = function () {
-        var colorChars = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+        var colorChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
         var colors = [];
         _.times(90, function () {
             colors.push({
