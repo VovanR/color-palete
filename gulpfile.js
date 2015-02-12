@@ -55,6 +55,7 @@ gulp.task('styles', function () {
         }))
         .pipe(addsrc([
             './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/css/evil-icons.css',
+            './bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css',
         ]))
         .pipe(concat('style.css'))
         .pipe(csso())
@@ -76,6 +77,7 @@ gulp.task('scripts', function () {
         out: 'all.js',
         paths: {
             text: '../../bower_components/requirejs-text/text',
+            jqueryPerfectScrollbar: '../../bower_components/perfect-scrollbar/min/perfect-scrollbar.min',
 
             // Apps paths
             collections: './collections',

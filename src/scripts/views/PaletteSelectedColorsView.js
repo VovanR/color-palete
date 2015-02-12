@@ -6,18 +6,25 @@ define([
     'jquery',
     'lodash',
     'backbone',
+    'handlebars',
+    'text!templates/PaletteSelectedColorsTemplate.tpl',
     'views/PaletteSelectedColorView',
+    'jqueryPerfectScrollbar',
 ], function (
     $,
     _,
     Backbone,
-    PaletteSelectedColorView
+    Handlebars,
+    PaletteSelectedColorsTemplate,
+    PaletteSelectedColorView,
+    jqueryPerfectScrollbar
 ) {
 
     'use strict';
 
     var PaletteSelectedColorsView = Backbone.View.extend({
         el: '#palette-selected-colors-placeholder',
+        template: Handlebars.compile(PaletteSelectedColorsTemplate),
 
         /**
          * @param {Oblect} o Options
@@ -30,13 +37,20 @@ define([
             this.listenTo(this.collection, 'remove', this.render);
             this.listenTo(this.collection, 'destroy', this.render);
             this.listenTo(this.collection, 'change:selected', this.render);
+
+            this.$el.html(this.template);
+            this.$content = this.$('.b-palette-selected-colors');
+            this.$('.b-palette-selected-colors__scrollbar').perfectScrollbar({
+                suppressScrollX: true,
+                minScrollbarLength: 24,
+            });
             this.render();
         },
 
         /**
          */
         render: function () {
-            this.$el.empty();
+            this.$content.empty();
             var selected = this.collection.where({
                 selected: true,
             });
@@ -44,7 +58,7 @@ define([
                 var selectedColor = new PaletteSelectedColorView({
                     model: model,
                 });
-                this.$el.append(selectedColor.render());
+                this.$content.append(selectedColor.render());
             }, this);
         },
     });

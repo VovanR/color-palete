@@ -20,5 +20,8 @@
   ],
   "dependencies": {
     "requirejs-text": "~2.0.12"
+  },
+  "devDependencies": {
+    "perfect-scrollbar": "~0.5.9"
   }
 }
