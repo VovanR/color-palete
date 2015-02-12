@@ -35,8 +35,8 @@ define([
             });
         });
         colors.push({
-            name: 'fogdog',
-            value: '#f06d06',
+            name: 'FogDog',
+            value: '#f09d09',
         });
 
         var paletteCollection = new PaletteCollection(colors);

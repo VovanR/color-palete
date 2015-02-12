@@ -8,12 +8,14 @@ define([
     'backbone',
     'handlebars',
     'text!templates/PaletteAddColorTemplate.tpl',
+    'tinycolor',
 ], function (
     $,
     _,
     Backbone,
     Handlebars,
-    PaletteAddColorTemplate
+    PaletteAddColorTemplate,
+    tinycolor
 ) {
 
     'use strict';
@@ -53,13 +55,13 @@ define([
          * @private
          */
         _addNewColor: function () {
-            var value = this._getValue();
-            if (!value) {
+            var value = tinycolor(this._getValue());
+            if (!value.isValid()) {
                 console.error('Value is not valid');
                 return;
             }
             this.collection.add({
-                value: this._getValue(),
+                value: value.toHexString(),
                 name: this._getName(),
             });
             this.$value.val('');
