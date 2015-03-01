@@ -26,6 +26,8 @@ define([
          */
         initialize: function (o) {
             this.model = o.model;
+            this.listenTo(this.model, 'change:value', this.render);
+            this.listenTo(this.model, 'change:name', this.render);
             this.listenTo(this.model, 'change:selected', this._onToggle);
             this.listenTo(this.model, 'change:hovered', this._onHover);
         },

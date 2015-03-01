@@ -8,12 +8,14 @@ define([
     'backbone',
     'handlebars',
     'text!templates/PaletteSelectedColorTemplate.tpl',
+    'views/PaletteEditColorView',
 ], function (
     $,
     _,
     Backbone,
     Handlebars,
-    PaletteSelectedColorTemplate
+    PaletteSelectedColorTemplate,
+    PaletteEditColorView
 ) {
 
     'use strict';
@@ -31,13 +33,16 @@ define([
             console.info('PaletteSelectedColorView');
             this.model = o.model;
             this.listenTo(this.model, 'change:editMode', this._onEdit);
+            this.listenTo(this.model, 'change:value', this.render);
+            this.listenTo(this.model, 'change:name', this.render);
         },
 
         /**
          * @return {jQuery} $el
          */
         render: function () {
-            this.$el.prop('tabindex', 0);
+            this.model.set('editMode', false);
+
             this.$el.html(this.template({
                 name: this.model.get('name'),
                 value: this.model.get('value'),
@@ -55,14 +60,8 @@ define([
 
             /**
              */
-            'focus': function () {
-                this.model.set('editMode', true);
-            },
-
-            /**
-             */
-            'blur': function () {
-                this.model.set('editMode', false);
+            'click .b-palette-selected-color__edit': function () {
+                this.model.set('editMode', !this.model.get('editMode'));
             },
 
             /**
@@ -82,7 +81,35 @@ define([
          * @private
          */
         _onEdit: function () {
-            this.$el.toggleClass('b-palette-selected-color__item_mode_edit', this.model.get('editMode'));
+            var editMode = this.model.get('editMode');
+            this.$el.toggleClass('b-palette-selected-color__item_mode_edit', editMode);
+
+            if (editMode) {
+                this._openEditPanel();
+            } else {
+                this._closeEditPanel();
+            }
+        },
+
+        /**
+         * @private
+         */
+        _openEditPanel: function () {
+            this._editPanel = new PaletteEditColorView({
+                model: this.model,
+            });
+            this.$el.append(this._editPanel.render().$el);
+        },
+
+        /**
+         * @private
+         */
+        _closeEditPanel: function () {
+            if (!this._editPanel) {
+                return;
+            }
+            this._editPanel.destroy();
+            this._editPanel = null;
         },
     });
 
