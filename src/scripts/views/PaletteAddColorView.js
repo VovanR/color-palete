@@ -49,6 +49,29 @@ define([
                 e.preventDefault();
                 this._addNewColor();
             },
+
+            /**
+             */
+            'keyup .js-palette-add-color__value': function () {
+                this._updateBackBackground();
+            },
+        },
+
+        /**
+         * @private
+         */
+        _updateBackBackground: function () {
+            var value = tinycolor(this._getValue());
+            var $back = this.$el.parent();
+            var color = 'transparent';
+
+            if (value.isValid()) {
+                color = value.toHexString();
+            }
+
+            $back.css({
+                backgroundColor: color,
+            });
         },
 
         /**
@@ -66,6 +89,7 @@ define([
             });
             this.$value.val('');
             this.$name.val('');
+            this._updateBackBackground();
         },
 
         /**
