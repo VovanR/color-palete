@@ -38,6 +38,9 @@ define([
             var color = this.model.get('value');
             block.style.backgroundColor = color;
             block.style.color = color;
+            if (this.model.get('selected')) {
+                this.$el.addClass('b-palette__item_state_selected');
+            }
 
             return this.$el;
         },

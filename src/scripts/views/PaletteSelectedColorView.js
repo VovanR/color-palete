@@ -30,15 +30,19 @@ define([
         initialize: function (o) {
             console.info('PaletteSelectedColorView');
             this.model = o.model;
+            this.listenTo(this.model, 'change:editMode', this._onEdit);
         },
 
         /**
+         * @return {jQuery} $el
          */
         render: function () {
+            this.$el.prop('tabindex', 0);
             this.$el.html(this.template({
                 name: this.model.get('name'),
                 value: this.model.get('value'),
             }));
+
             return this.$el;
         },
 
@@ -47,6 +51,18 @@ define([
              */
             'click .b-palette-selected-color__remove': function () {
                 this.model.destroy();
+            },
+
+            /**
+             */
+            'focus': function () {
+                this.model.set('editMode', true);
+            },
+
+            /**
+             */
+            'blur': function () {
+                this.model.set('editMode', false);
             },
 
             /**
@@ -60,6 +76,13 @@ define([
             'mouseleave': function () {
                 this.model.set('hovered', false);
             },
+        },
+
+        /**
+         * @private
+         */
+        _onEdit: function () {
+            this.$el.toggleClass('b-palette-selected-color__item_mode_edit', this.model.get('editMode'));
         },
     });
 
