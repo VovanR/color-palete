@@ -48,6 +48,18 @@ define([
             'click .b-palette-selected-color__remove': function () {
                 this.model.destroy();
             },
+
+            /**
+             */
+            'mouseenter': function () {
+                this.model.set('hovered', true);
+            },
+
+            /**
+             */
+            'mouseleave': function () {
+                this.model.set('hovered', false);
+            },
         },
     });
 
