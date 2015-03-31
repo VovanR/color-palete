@@ -39,8 +39,8 @@ define([
             this.listenTo(this.collection, 'change:selected', this.render);
 
             this.$el.html(this.template);
-            this.$content = this.$('.b-palette-selected-colors');
-            this.$('.b-palette-selected-colors__scrollbar').perfectScrollbar({
+            this.$content = this.$('.palette-selected-colors');
+            this.$('.palette-selected-colors__scrollbar').perfectScrollbar({
                 suppressScrollX: true,
                 minScrollbarLength: 24,
             });

@@ -22,7 +22,7 @@ define([
 
     var PaletteSelectedColorView = Backbone.View.extend({
         tagName: 'div',
-        className: 'b-palette-selected-color__item',
+        className: 'palette-selected-color__item',
         template: Handlebars.compile(PaletteSelectedColorTemplate),
 
         /**
@@ -54,25 +54,25 @@ define([
         events: {
             /**
              */
-            'click .b-palette-selected-color__remove': function () {
+            'click .palette-selected-color__remove': function () {
                 this.model.destroy();
             },
 
             /**
              */
-            'click .b-palette-selected-color__edit': function () {
+            'click .palette-selected-color__edit': function () {
                 this.model.set('editMode', !this.model.get('editMode'));
             },
 
             /**
              */
-            'mouseenter': function () {
+            mouseenter: function () {
                 this.model.set('hovered', true);
             },
 
             /**
              */
-            'mouseleave': function () {
+            mouseleave: function () {
                 this.model.set('hovered', false);
             },
         },
@@ -82,7 +82,7 @@ define([
          */
         _onEdit: function () {
             var editMode = this.model.get('editMode');
-            this.$el.toggleClass('b-palette-selected-color__item_mode_edit', editMode);
+            this.$el.toggleClass('palette-selected-color__item_mode_edit', editMode);
 
             if (editMode) {
                 this._openEditPanel();

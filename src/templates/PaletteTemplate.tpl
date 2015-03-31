@@ -1,1 +1,1 @@
-<div class="b-palette js-palette"></div>
+<div class="palette js-palette"></div>

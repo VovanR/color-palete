@@ -64,7 +64,7 @@ define([
          */
         _updateBackBackground: function () {
             var value = tinycolor(this._getValue());
-            var $back = this.$('.b-palette-edit-color');
+            var $back = this.$('.palette-edit-color');
             var color = 'transparent';
 
             if (value.isValid()) {

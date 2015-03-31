@@ -18,7 +18,7 @@ define([
 
     var ColorView = Backbone.View.extend({
         tagName: 'span',
-        className: 'b-palette__item',
+        className: 'palette__item',
 
         /**
          * @param {Oblect} o Options
@@ -41,7 +41,7 @@ define([
             block.style.backgroundColor = color;
             block.style.color = color;
             if (this.model.get('selected')) {
-                this.$el.addClass('b-palette__item_state_selected');
+                this.$el.addClass('palette__item_state_selected');
             }
 
             return this.$el;
@@ -59,14 +59,14 @@ define([
          * @private
          */
         _onToggle: function () {
-            this.$el.toggleClass('b-palette__item_state_selected', this.model.get('selected'));
+            this.$el.toggleClass('palette__item_state_selected', this.model.get('selected'));
         },
 
         /**
          * @private
          */
         _onHover: function () {
-            this.$el.toggleClass('b-palette__item_state_hovered', this.model.get('hovered'));
+            this.$el.toggleClass('palette__item_state_hovered', this.model.get('hovered'));
         },
     });
 

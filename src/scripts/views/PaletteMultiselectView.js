@@ -15,7 +15,7 @@ define([
     'use strict';
 
     var PaletteMultiselectView = Backbone.View.extend({
-        el: '.b-palette-multiselect',
+        el: '.palette-multiselect',
 
         /**
          * @param {Oblect} o Options
@@ -27,7 +27,7 @@ define([
             this.listenTo(this.collection, 'add', this.render);
             this.listenTo(this.collection, 'remove', this.render);
             this.listenTo(Backbone, 'single-selection', this._changeSelectionMode);
-            this.$checkbox = this.$('.b-palette-multiselect__checkbox');
+            this.$checkbox = this.$('.palette-multiselect__checkbox');
             this.render();
         },
 
@@ -46,7 +46,7 @@ define([
         events: {
             /**
              */
-            'click .b-palette-multiselect__checkbox': function (e) {
+            'click .palette-multiselect__checkbox': function (e) {
                 this.collection.toggleSingleSelectionMode(!this.$checkbox.prop('checked'));
             },
         },

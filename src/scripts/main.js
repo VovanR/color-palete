@@ -10,6 +10,8 @@ require([
     App
 ) {
 
-    var app = App.initialize();
+    'use strict';
+
+    App.initialize();
 
 });

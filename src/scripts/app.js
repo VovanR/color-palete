@@ -24,6 +24,8 @@ define([
     PaletteMultiselectView
 ) {
 
+    'use strict';
+
     /**
      */
     var initialize = function () {

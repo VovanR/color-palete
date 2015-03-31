@@ -54,7 +54,7 @@ gulp.task('styles', function () {
             cascade: false,
         }))
         .pipe(addsrc([
-            './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/css/evil-icons.css',
+            './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/evil-icons.css',
             './bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css',
         ]))
         .pipe(concat('style.css'))
