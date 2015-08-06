@@ -1,11 +1,11 @@
 .palette__item {
-    size = 10%;
+    $size: 10%;
 
     position: relative;
     float: left;
-    padding-bottom: size;
+    padding-bottom: $size;
     min-width: 50px;
-    width: size;
+    width: $size;
     border-radius: 0;
     color: #fff;
     transition: border-radius 0.5s ease 0s,

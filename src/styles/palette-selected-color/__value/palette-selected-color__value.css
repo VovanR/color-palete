@@ -1,0 +1,14 @@
+.palette-selected-color__value {
+    $backgroundColor: rgba(255, 255, 255, 0.5);
+    $textBorderColor: rgba(255, 255, 255, 0.5);
+    $borderRadius: 3px;
+
+    float: left;
+    clear: both;
+    padding: 0 5px;
+    border-radius: 0 0 $borderRadius $borderRadius;
+    background-color: $backgroundColor;
+    color: #333;
+    text-shadow: 0 1px 0 $textBorderColor;
+    font-family: monospace;
+}

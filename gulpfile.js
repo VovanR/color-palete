@@ -12,8 +12,8 @@ var jscs = require('gulp-jscs');
 var rjs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
 
-var stylus = require('gulp-stylus');
-var autoprefixer = require('gulp-autoprefixer');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 var csso = require('gulp-csso');
 
 var evilIcons = require('gulp-evil-icons');
@@ -45,16 +45,19 @@ gulp.task('html', function () {
 });
 
 gulp.task('styles', function () {
-    gulp.src([
-            './src/styles/style.styl',
-        ])
-        .pipe(stylus())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8'],
-            cascade: false,
-        }))
+    return gulp.src('src/styles/style.css')
+        .pipe(postcss([
+            require('postcss-import'),
+            require('postcss-nested'),
+            require('postcss-simple-vars'),
+            require('postcss-clearfix'),
+            autoprefixer({
+                browsers: ['last 2 versions', 'ie >= 8'],
+                cascade: false,
+            }),
+        ]))
         .pipe(addsrc([
-            './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/evil-icons.css',
+            './node_modules/gulp-evil-icons/node_modules/evil-icons/assets/css/evil-icons.css',
             './bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css',
         ]))
         .pipe(concat('style.css'))

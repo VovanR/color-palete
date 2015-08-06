@@ -1,0 +1,16 @@
+.palette-selected-color__remove {
+    $backgroundColor: rgba(255, 255, 255, 0.5);
+    $textBorderColor: rgba(255, 255, 255, 0.5);
+    $borderRadius: 3px;
+
+    float: right;
+    padding: 0 5px;
+    border-radius: $borderRadius;
+    background-color: $backgroundColor;
+    color: #333;
+    text-shadow: 0 1px 0 $textBorderColor;
+    font-family: monospace;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity ease 0.25s;
+}
