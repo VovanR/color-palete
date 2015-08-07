@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module ColorModel
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -14,6 +15,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:ColorModel
+     */
     var ColorModel = Backbone.Model.extend({
         defaults: {
             name: null,

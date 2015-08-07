@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module AppRouter
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -14,6 +15,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:AppRouter
+     */
     var AppRouter = Backbone.Router.extend({
         /**
          */

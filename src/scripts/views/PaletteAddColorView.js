@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteAddColorView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -20,6 +21,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteAddColorView
+     */
     var PaletteAddColorView = Backbone.View.extend({
         el: '#palette-add-color-placeholder',
         template: Handlebars.compile(PaletteAddColorTemplate),

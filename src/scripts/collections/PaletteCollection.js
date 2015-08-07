@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteCollection
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -16,6 +17,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteCollection
+     */
     var PaletteCollection = Backbone.Collection.extend({
         model: ColorModel,
         _singleSelection: true,

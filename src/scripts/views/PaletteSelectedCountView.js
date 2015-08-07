@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteSelectedCountView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -14,6 +15,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteSelectedCountView
+     */
     var PaletteSelectedCountView = Backbone.View.extend({
         el: '#palette-selected-count',
 

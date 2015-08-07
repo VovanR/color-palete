@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module ColorView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -16,6 +17,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:ColorView
+     */
     var ColorView = Backbone.View.extend({
         tagName: 'span',
         className: 'palette__item',

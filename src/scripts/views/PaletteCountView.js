@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteCountView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -14,6 +15,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteCountView
+     */
     var PaletteCountView = Backbone.View.extend({
         el: '#palette-count',
 

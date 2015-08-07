@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteSelectedColorsView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -22,6 +23,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteSelectedColorsView
+     */
     var PaletteSelectedColorsView = Backbone.View.extend({
         el: '#palette-selected-colors-placeholder',
         template: Handlebars.compile(PaletteSelectedColorsTemplate),

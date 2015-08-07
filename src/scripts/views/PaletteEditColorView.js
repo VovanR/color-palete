@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteEditColorView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -20,6 +21,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteEditColorView
+     */
     var PaletteEditColorView = Backbone.View.extend({
         tagName: 'div',
         template: Handlebars.compile(PaletteEditColorTemplate),

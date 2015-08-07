@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -20,6 +21,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteView
+     */
     var PaletteView = Backbone.View.extend({
         el: '#palette-placeholder',
         template: Handlebars.compile(PaletteTemplate),

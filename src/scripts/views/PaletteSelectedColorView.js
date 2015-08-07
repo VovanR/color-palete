@@ -1,5 +1,6 @@
 /**
- * @author VovanR <mail@vovanr.com>
+ * @module PaletteSelectedColorView
+ * @author Vladimir Rodkin <mail@vovanr.com>
  */
 
 define([
@@ -20,6 +21,9 @@ define([
 
     'use strict';
 
+    /**
+     * @alias module:PaletteSelectedColorView
+     */
     var PaletteSelectedColorView = Backbone.View.extend({
         tagName: 'div',
         className: 'palette-selected-color__item',
