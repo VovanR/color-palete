@@ -32,8 +32,7 @@ define([
             console.info('PaletteView');
             this.collection = o.collection;
 
-            this.listenTo(this.collection, 'add', this._update);
-            this.listenTo(this.collection, 'destroy', this._update);
+            this.listenTo(this.collection, 'add', this._onAdd);
             this.render();
             this.collection.each(this._onAdd);
 
@@ -55,14 +54,6 @@ define([
                 model: model,
             });
             this.$('.js-palette').append(colorView.render());
-        },
-
-        /**
-         * @private
-         */
-        _update: function () {
-            this.$('.js-palette').empty();
-            this.collection.each(this._onAdd);
         },
 
         /**

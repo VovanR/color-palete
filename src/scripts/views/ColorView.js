@@ -30,6 +30,7 @@ define([
             this.listenTo(this.model, 'change:name', this.render);
             this.listenTo(this.model, 'change:selected', this._onToggle);
             this.listenTo(this.model, 'change:hovered', this._onHover);
+            this.listenTo(this.model, 'destroy', this.destroy);
         },
 
         /**
@@ -67,6 +68,13 @@ define([
          */
         _onHover: function () {
             this.$el.toggleClass('palette__item_state_hovered', this.model.get('hovered'));
+        },
+
+        /**
+         */
+        destroy: function () {
+            this.undelegateEvents();
+            this.remove();
         },
     });
 
