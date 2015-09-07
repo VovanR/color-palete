@@ -1,6 +1,6 @@
 # color-palette
 
-> Simple color palette
+> Simple color palette (Backbone.js)
 
 ## Demo
 [vovanr.github.io/color-palette](http://vovanr.github.io/color-palette)
