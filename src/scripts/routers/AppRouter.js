@@ -4,27 +4,25 @@
  */
 
 define([
-    'jquery',
-    'lodash',
-    'backbone',
+	'jquery',
+	'lodash',
+	'backbone'
 ], function (
-    $,
-    _,
-    Backbone
+	$,
+	_,
+	Backbone
 ) {
+	'use strict';
 
-    'use strict';
+	/**
+	* @alias module:AppRouter
+	*/
+	var AppRouter = Backbone.Router.extend({
+		/**
+		*/
+		initialize: function () {
+		}
+	});
 
-    /**
-     * @alias module:AppRouter
-     */
-    var AppRouter = Backbone.Router.extend({
-        /**
-         */
-        initialize: function () {
-        },
-    });
-
-    return AppRouter;
-
+	return AppRouter;
 });

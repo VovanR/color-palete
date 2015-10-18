@@ -4,51 +4,49 @@
  */
 
 define([
-    'jquery',
-    'lodash',
-    'backbone',
+	'jquery',
+	'lodash',
+	'backbone'
 ], function (
-    $,
-    _,
-    Backbone
+	$,
+	_,
+	Backbone
 ) {
+	'use strict';
 
-    'use strict';
+	/**
+	* @alias module:ColorModel
+	*/
+	var ColorModel = Backbone.Model.extend({
+		defaults: {
+			name: null,
+			value: '#fff',
+			selected: false,
+			hovered: false,
+			editMode: false
+		},
 
-    /**
-     * @alias module:ColorModel
-     */
-    var ColorModel = Backbone.Model.extend({
-        defaults: {
-            name: null,
-            value: '#fff',
-            selected: false,
-            hovered: false,
-            editMode: false,
-        },
+		/**
+		* @param {Object} o
+		*/
+		initialize: function (o) {
+			if (!o.name) {
+				this.set('name', o.value);
+			}
+		},
 
-        /**
-         * @param {Object} o
-         */
-        initialize: function (o) {
-            if (!o.name) {
-                this.set('name', o.value);
-            }
-        },
+		/**
+		*/
+		toggle: function () {
+			this.set('selected', !this.get('selected'));
+		},
 
-        /**
-         */
-        toggle: function () {
-            this.set('selected', !this.get('selected'));
-        },
+		/**
+		*/
+		deselect: function () {
+			this.set('selected', false);
+		}
+	});
 
-        /**
-         */
-        deselect: function () {
-            this.set('selected', false);
-        },
-    });
-
-    return ColorModel;
-
+	return ColorModel;
 });

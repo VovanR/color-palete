@@ -1,46 +1,49 @@
 {
   "name": "color-palette",
-  "version": "0.0.0",
   "description": "Simple color palette",
-  "homepage": "https://github.com/VovanR/color-palette",
-  "license": "MIT",
+  "version": "0.0.0",
+  "author": "Vladimir Rodkin <mail@vovanr.com>",
+  "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VovanR/color-palette.git"
-  },
-  "author": {
-    "name": "VovanR",
-    "url": "http://vovanr.com/"
-  },
-  "devDependencies": {
-    "autoprefixer-core": "^5.2.1",
-    "bower": "",
-    "gulp": "",
-    "gulp-add-src": "",
-    "gulp-concat": "",
-    "gulp-connect": "",
-    "gulp-csso": "",
-    "gulp-evil-icons": "",
-    "gulp-jscs": "",
-    "gulp-jshint": "",
-    "gulp-postcss": "^5.1.10",
-    "gulp-requirejs": "",
-    "gulp-rev-append": "",
-    "gulp-uglify": "",
-    "jscs": "",
-    "jscs-jsdoc": "",
-    "jshint-stylish": "",
-    "postcss-clearfix": "^0.1.3",
-    "postcss-import": "^6.2.0",
-    "postcss-nested": "^0.3.2",
-    "postcss-simple-vars": "^0.3.0",
-    "yargs": ""
+    "url": "https://github.com/VovanR/color-palette"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "xo": {
+    "globals": [
+      "define",
+      "require",
+      "window",
+      "document"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "bower": "^1.6.3",
+    "gulp": "",
+    "gulp-add-src": "^0.2.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-evil-icons": "^0.2.0",
+    "gulp-postcss": "",
+    "gulp-requirejs": "^0.1.3",
+    "gulp-rev-append": "^0.1.6",
+    "gulp-uglify": "",
+    "gulp-xo": "^0.4.0",
+    "postcss-clearfix": "",
+    "postcss-import": "^7.0.0",
+    "postcss-nested": "",
+    "postcss-simple-vars": "",
+    "yargs": "^3.28.0"
+  },
   "bugs": {
     "url": "https://github.com/VovanR/color-palette/issues"
-  }
+  },
+  "homepage": "https://github.com/VovanR/color-palette",
+  "license": "MIT",
+  "dependencies": {}
 }
